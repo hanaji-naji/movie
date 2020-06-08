@@ -1,0 +1,10 @@
+%main.works-new
+  works#new
+  = form_for @work do |f|
+    = f.text_field :title
+    = f.number_field :year
+    = f.fields_for :images do |image|
+      = image.file_field :url
+      
+    %br
+    = f.submit '送信ボタン'

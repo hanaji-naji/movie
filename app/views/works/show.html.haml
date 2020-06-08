@@ -1,0 +1,26 @@
+%main.work-show
+  id:
+  = @work.id
+  %br/
+  title:
+  = @work.title 
+  %br/
+  year:
+  = @work.year
+  %br
+  = link_to "感想投稿", new_work_review_path(params[:id])
+  %br
+
+  - if @work.images.blank?
+    画像はありません
+    %br/
+  - else
+    = image_tag @work.images[0].url.url
+    %br/
+  - if @work.reviews.blank?
+    感想がありません
+  - else
+    - @work.reviews.each_with_index do |review, i|
+      #{i} comment:
+      = review.comment
+      %br

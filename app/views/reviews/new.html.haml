@@ -1,0 +1,5 @@
+%main.reviews-new
+  reviews#new
+  = form_for @review, url:{controller: :reviews, action: :create}, method: :post do |f|
+    = f.text_area :comment
+    = f.submit '送信ボタン'

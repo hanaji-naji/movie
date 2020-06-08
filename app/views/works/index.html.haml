@@ -1,0 +1,10 @@
+%main.works-index
+  works#index
+  .recent
+    -# - if @works.persisted?
+    - @works.each do |work|
+      = link_to work_path(work.id) do
+        = work.id
+        = work.title
+        %br
+    = link_to '新規作品投稿', new_work_path
